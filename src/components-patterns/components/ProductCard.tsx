@@ -1,23 +1,33 @@
 import styles from '../styles/styles.module.css';
-import noImage from '../assets/no-image.jpg';
+import { UseProduct } from '../hooks/useProduct';
+import { createContext } from 'react';
+import { ProductCardProps, ProductContextProps } from '../interfaces/product.interfaces';
 
-export const ProductCard = () => {
+// Contexto para que el padre le pase a los hijos la data
+export const ProductContext = createContext({} as ProductContextProps) ;
+const { Provider } = ProductContext;
+
+export const ProductCard = ({ children, product }: ProductCardProps) => {
+
+    const { counter, handleIncreaseBy, handleDecreaseBy } = UseProduct()
+
+    // Provider: Data a enviar a los hijos
     return (
-        <div className={styles.productCard}>
-            <img className={ styles.productImg } src="./coffee-mug.png" alt="Coffee Mug" />
-            {/* <img src={ noImage } alt="No img" /> */}
-            <span className={ styles.productDescription }>Coffee Mug</span>
+        <Provider value={{ 
+            counter,
+            handleIncreaseBy,
+            handleDecreaseBy,
+            product
+        }}>
+            <div className={styles.productCard}>
 
-            <div className={styles.buttonsContainer}>
+                { children }
 
-                <button className={styles.buttonMinus}>-</button>
-
-                <div className={styles.countLabel}>0</div>
-
-                <button className={styles.buttonAdd}>+</button>
-                
             </div>
-
-        </div>
+        </Provider>
     )
 }
+
+// ProductCard.Title = ProductTitle;
+// ProductCard.Image = ProductImage;
+// ProductCard.Buttons = ProductButtons;
