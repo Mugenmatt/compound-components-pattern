@@ -7,7 +7,7 @@ import {
 
 import logo from '../logo.svg';
 
-import { RegisterPage, ShoppingPage, FormikBasicPage } from "../components-patterns/pages/index";
+import { RegisterPage, ShoppingPage, FormikBasicPage, FormikYupPage, FormikComponents, FormikAbstraction } from "../components-patterns/pages/index";
 
 export const Navigation = () => {
     return (
@@ -20,6 +20,18 @@ export const Navigation = () => {
                     <NavLink to="/" end>Formik</NavLink>
                 </li>
                 <li>
+                    <NavLink to="/formik-basic" end>Formik Basico</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/formik-yup" end>Formik con YUP</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/formik-components" end>Formik Components</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/formik-abstraction" end>Formik Abstraction</NavLink>
+                </li>
+                <li>
                     <NavLink to="/register" end>Registro</NavLink>
                 </li>
                 <li>
@@ -29,7 +41,11 @@ export const Navigation = () => {
         </nav>
 
         <Routes>
-            <Route path="/" element={ <FormikBasicPage /> } />
+            <Route path="/" element={ <h1>Home</h1> } />
+            <Route path="/formik-basic" element={ <FormikBasicPage /> } />
+            <Route path="/formik-yup" element={ <FormikYupPage /> } />
+            <Route path="/formik-components" element={ <FormikComponents /> } />
+            <Route path="/formik-abstraction" element={ <FormikAbstraction /> } />
             <Route path="/register" element={ <RegisterPage /> } />
             <Route path="/shopping" element={ <ShoppingPage /> } />
         </Routes>
