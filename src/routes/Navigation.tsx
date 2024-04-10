@@ -7,7 +7,7 @@ import {
 
 import logo from '../logo.svg';
 
-import { RegisterPage, ShoppingPage, FormikBasicPage, FormikYupPage, FormikComponents, FormikAbstraction } from "../components-patterns/pages/index";
+import { RegisterPage, ShoppingPage, FormikBasicPage, FormikYupPage, FormikComponents, FormikAbstraction, RegisterFormikPage, DynamicForm } from "../components-patterns/pages/index";
 
 export const Navigation = () => {
     return (
@@ -35,7 +35,13 @@ export const Navigation = () => {
                     <NavLink to="/register" end>Registro</NavLink>
                 </li>
                 <li>
+                    <NavLink to="/register-formik" end>Registro Formik</NavLink>
+                </li>
+                <li>
                     <NavLink to="/shopping" end>Shopping</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/dynamic-form" end>Form Dinámico</NavLink>
                 </li>
             </ul>
         </nav>
@@ -47,7 +53,9 @@ export const Navigation = () => {
             <Route path="/formik-components" element={ <FormikComponents /> } />
             <Route path="/formik-abstraction" element={ <FormikAbstraction /> } />
             <Route path="/register" element={ <RegisterPage /> } />
+            <Route path="/register-formik" element={ <RegisterFormikPage /> } />
             <Route path="/shopping" element={ <ShoppingPage /> } />
+            <Route path="/dynamic-form" element={ <DynamicForm /> } />
         </Routes>
         </div>
     </Router>
